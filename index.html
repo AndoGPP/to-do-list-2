@@ -2,26 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script type="module" src="/src/main.ts" defer></script>
+    <script
+      src="https://kit.fontawesome.com/06a427721a.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-
-    <script type="module" src="/src/main.ts" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500&family=IBM+Plex+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Another Todolist</title>
   </head>
-  <body class="container">
-    <main>
+  <body
+    style="background: transparent"
+    class="container d-flex flex-column align-items-center justify-content-between"
+  >
+    <header style="height: 15em"></header>
+    <main
+      class="container-sm d-flex flex-column align-items-center gap-2 pt-3"
+      style="height: 81vh; max-width: 750px"
+    >
       <h1 class="text-center">Not another todo-list</h1>
       <form id="new-task-form" class="input-group">
         <input
@@ -30,26 +34,84 @@
           class="form-control"
           placeholder="Enter new task"
         />
-        <button type="submit" class="btn btn-secondary">Add task</button>
+        <button type="submit" class="btn btn-success">Add task</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        >
+          Clear list
+        </button>
       </form>
-      <div id="list"></div>
+
+      <!----------- Tasks ---------------->
+      <div class="w-100 pt-1" id="list"></div>
+
+      <!----------- Modal ---------------->
+      <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                Are you sure you want to remove all tasks?
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                After removing all tasks you won't be able to get them back.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="removeTasks"
+                data-bs-dismiss="modal"
+              >
+                Remove tasks
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <footer>
+      Photo by
+      <a
+        href="https://unsplash.com/@alexagorn?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Alexandra Gorn</a
+      >
+      on
+      <a
+        href="https://unsplash.com/photos/woman-covering-her-face-with-blanket-smuS_jUZa9I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Unsplash</a
+      >
+      <br />
+      <br />
+    </footer>
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
   </body>
